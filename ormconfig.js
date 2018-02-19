@@ -1,3 +1,9 @@
+const path = require('path')
+
+// If file with extension .ts is executed, then typescript sources are used
+const extension = path.extname(process.argv[1])
+const sourceDirectory = extension === '.ts' ? 'src' : 'dist';
+
 module.exports = {
     "type": "postgres",
     "url": process.env.DATABASE_URL,
@@ -6,13 +12,13 @@ module.exports = {
     "logging": "all",
     "logger": "debug",
     "entities": [
-        "dist/entity/**/*.js"
+        `${sourceDirectory}/entity/**/*${extension}`
     ],
     "migrations": [
-        "dist/migration/**/*.js"
+        `${sourceDirectory}/migration/**/*${extension}`
     ],
     "subscribers": [
-        "dist/subscriber/**/*.js"
+        `${sourceDirectory}/subscriber/**/*${extension}`
     ],
     "cli": {
         "entitiesDir": "src/entity",
