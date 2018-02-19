@@ -16,9 +16,10 @@
   },
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "start": "tsc && node dist/app.js",
+    "start": "tsc && node -r dotenv/config dist/app.js",
     "dev": "nodemon",
-    "typeorm": "tsc && typeorm"
+    "typeorm": "tsc && typeorm",
+    "seed": "ts-node src/seed/user.ts"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
