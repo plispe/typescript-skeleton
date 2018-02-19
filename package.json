@@ -16,7 +16,8 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "start": "tsc && node dist/app.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "typeorm": "tsc && typeorm"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
