@@ -52,12 +52,11 @@
         "jsdoc-format": true,
         "label-position": true,
         "member-access": [
-            true,
-            "no-public"
+            true
         ],
         "new-parens": true,
         "no-angle-bracket-type-assertion": true,
-        "no-any": true,
+        "no-any": false,
         "no-arg": true,
         "no-conditional-assignment": true,
         "no-construct": true,
