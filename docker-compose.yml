@@ -1,0 +1,28 @@
+version: "2.1"
+services:
+  app:
+    build: .
+    command: "yarn dev"
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postres://typescript:typescript@postgres:5432/typescript
+      - DATABASE_SSL_MODE=disabled  
+    command: ["yarn", "dev"]  
+    depends_on:
+      postgres:
+        condition: service_healthy
+  
+  postgres:
+    image: postgres:10.2-alpine
+    environment:
+      - POSTGRES_USER=typescript
+      - POSTGRES_DB=typescript
+      - POSTGRES_PASSWORD=typescript
+    healthcheck:
+      test: ["CMD-SHELL", "psql -h 'localhost' -U typescript -c '\\l'"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
