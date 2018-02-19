@@ -9,7 +9,8 @@ services:
       - 3000:3000
     environment:
       - DATABASE_URL=postres://typescript:typescript@postgres:5432/typescript
-      - DATABASE_SSL_MODE=disabled  
+      - DATABASE_SSL_MODE=disabled
+      - DEBUG=typeorm:*
     command: ["yarn", "dev"]  
     depends_on:
       postgres:
