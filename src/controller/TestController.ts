@@ -3,7 +3,11 @@ import {Controller, Get} from "routing-controllers";
 @Controller()
 export class TestController {
     @Get("/")
-    getAll() {
+    public getAll() {
         return "Hello world!";
+    }
+    @Get('/foo')
+    public hello() {
+        return 'bar';
     }
 }
